@@ -2,19 +2,21 @@
 
 import React from "react";
 import axios from "../config/axios";
+import NoteItem from './item'
 import { Link } from "react-router-dom";
 import { Table,Button,Badge} from 'reactstrap'
+
 
 export default class NotesList extends React.Component {
   constructor() {
     super();
     this.state = {
       notes: []
+     
     };
   }
   componentDidMount() {
-    axios
-      .get("/notes", {
+    axios.get("/notes", {
         headers: {
           "x-auth": localStorage.getItem("token")
         }
@@ -28,6 +30,7 @@ export default class NotesList extends React.Component {
       .catch(err => {
         window.alert(err);
       });
+    
   }
 
   handleRemove = id => {
@@ -48,6 +51,7 @@ export default class NotesList extends React.Component {
 
   render() {
     console.log(this.state);
+   
     return (
       <div>
         <h3>Notes -{this.state.notes.length} </h3>
@@ -80,5 +84,5 @@ export default class NotesList extends React.Component {
         <Badge color="light" href="/notes/new">Add Note</Badge>
       </div>
     );
-  }
+  }   
 }
