@@ -60,6 +60,7 @@ export default class NotesList extends React.Component {
             <tr>
               <th>Title</th>
               {/* <th>Category</th> */}
+              
               <th>Show</th>
               <th>Action</th>
             </tr>

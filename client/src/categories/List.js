@@ -48,6 +48,7 @@ export default class CategoryList extends React.Component {
                         <tr>
                             <th>id</th>
                             <th>Name</th>
+                           
                             <th>Action</th>
                         </tr>
                     </thead>

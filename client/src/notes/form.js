@@ -52,10 +52,12 @@ import axios from "../config/axios";
         this.props.note && (formData.id=this.props.note._id)
           this.props.handleNoteSubmit(formData)
     }
-    // componentWillReceiveProps(nextProps){
-    //     const {title,description}=nextProps.note
-    //     this.setState({title,description})
-    //   }
+    componentWillReceiveProps(nextProps){
+       this.setState({
+           title:nextProps.note.title,
+           description:nextProps.note.description
+       })
+      }
 
     render(){
         return (
