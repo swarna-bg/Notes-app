@@ -24,7 +24,12 @@ export default class CategoryList extends React.Component {
     }
 
     removeHandle(id) {
-        axios.delete(`/categories/${id}`)
+        axios
+        .delete(`/categories/${id}`, {
+          headers: {
+            "x-auth": localStorage.getItem("authToken")
+          }
+        })
             .then((response) => {
                 if (response.data._id) {
                     this.setState(prevState => {
