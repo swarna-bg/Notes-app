@@ -27,7 +27,7 @@ class Login extends React.Component{
         }
         console.log(formData)
         this.props.dispatch(startSetUser(formData))
-        this.props.history.push("/notes")
+        this.props.history.push("/")
     }
 
     render(){

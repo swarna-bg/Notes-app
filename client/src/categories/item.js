@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { Button } from 'reactstrap'
-import { Link } from 'react-router-dom'
+
 export default function CategoryItem(props) {
-    const { index,name,  removeHandle,id} = props
+    const { index,name,  removeHandle,} = props
    
     return (
         <tr>

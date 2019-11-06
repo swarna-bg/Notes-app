@@ -21,11 +21,11 @@ import axios from "../config/axios";
     componentDidMount(){
         axios.get("/categories", {
             headers: {
-              "x-auth": localStorage.getItem("token")
+              "x-auth": localStorage.getItem("authToken")
             }
           })
           .then(response => {
-            console.log(response.data, "data");
+            //console.log(response.data, "data");
             this.setState({ categories: response.data }, () => {
               console.log(this.state.categories);
             });

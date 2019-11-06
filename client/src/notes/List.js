@@ -2,7 +2,7 @@
 
 import React from "react";
 import axios from "../config/axios";
-import NoteItem from './item'
+
 import { Link } from "react-router-dom";
 import { Table,Button,Badge} from 'reactstrap'
 
@@ -18,11 +18,11 @@ export default class NotesList extends React.Component {
   componentDidMount() {
     axios.get("/notes", {
         headers: {
-          "x-auth": localStorage.getItem("token")
+          "x-auth": localStorage.getItem("authToken")
         }
       })
       .then(response => {
-        console.log(response.data, "data");
+       // console.log(response.data, "data");
         this.setState({ notes: response.data }, () => {
           console.log(this.state.notes);
         });
@@ -37,7 +37,7 @@ export default class NotesList extends React.Component {
     axios
       .delete(`/notes/${id}`, {
         headers: {
-          "x-auth": localStorage.getItem("token")
+          "x-auth": localStorage.getItem("authToken")
         }
       })
       .then(response => {
@@ -50,7 +50,7 @@ export default class NotesList extends React.Component {
   };
 
   render() {
-    console.log(this.state);
+   // console.log(this.state);
    
     return (
       <div>

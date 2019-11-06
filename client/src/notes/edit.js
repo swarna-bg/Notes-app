@@ -11,7 +11,7 @@ export default class NoteEdit extends React.Component {
   }
 
   handleNoteSubmit = note => {
-    console.log("edit", note);
+    //console.log("edit", note);
     axios.put(`/notes/${note.id}`, note, {
         headers: {
           "x-auth": localStorage.getItem("token")
@@ -35,7 +35,7 @@ export default class NoteEdit extends React.Component {
     axios
       .get(`notes/${id}`, {
         headers: {
-          "x-auth": localStorage.getItem("token")
+          "x-auth": localStorage.getItem("authToken")
         }
       })
       .then(response => {

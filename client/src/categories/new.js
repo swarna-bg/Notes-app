@@ -11,7 +11,7 @@ import NoteForm from './form'
     axios
       .post("/categories", category, {
         headers: {
-          "x-auth": localStorage.getItem("token")
+          "x-auth": localStorage.getItem("authToken")
         }
       })
       .then(response => {
