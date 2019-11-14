@@ -14,7 +14,7 @@ export default class NoteEdit extends React.Component {
     //console.log("edit", note);
     axios.put(`/notes/${note.id}`, note, {
         headers: {
-          "x-auth": localStorage.getItem("token")
+          "x-auth": localStorage.getItem("authToken")
         }
       })
       .then(response => {
@@ -48,10 +48,10 @@ export default class NoteEdit extends React.Component {
       <div>
         <h2>Edit Note </h2>
 
-        <NoteForm
+        {Object.keys(this.state.note).length>0 && <NoteForm
           note={this.state.note}
           handleNoteSubmit={this.handleNoteSubmit}
-        />
+        />}
       </div>
     );
   }

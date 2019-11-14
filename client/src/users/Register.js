@@ -27,32 +27,36 @@ class Register extends React.Component{
             password:this.state.password
         }
         console.log(formData)
-    //     axios.post(`/user/register`,formData)
-    //         .then(response=>{
-    //             console.log(response.data)
-    //         if(response.data.errors){
-    //             alert(response.data.message)
-    //         }else{
-    //             this.props.history.push('/user/login')
+        axios.post(`/user/register`,formData)
+            .then(response=>{
+                console.log(response.data)
+            if(response.data.errors){
+                alert(response.data.message)
+            }else{
+                this.props.history.push('/user/login')
+            }
+    })
+    // const  userPassword = this.state.userPassword;
+    // if (formData.password === userPassword) {
+    //   axios.post('/user/register', formData,{
+    //         headers: {
+    //           "x-auth": localStorage.getItem("authToken")
     //         }
-    // })
-    const  userPassword = this.state.userPassword;
-    if (formData.password === userPassword) {
-      axios
-        .post("/user/register", formData)
-        .then(response => {
-          if (response.data.errors) {
-            window.alert(response.data.message);
-            console.log("validation error", response.data.errors);
-          } else {
-            console.log("Success", response.data);
-            this.props.history.push("/user/login");
-          }
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    } 
+
+    //   })
+    //     .then(response => {
+    //       if (response.data.errors) {
+    //         window.alert(response.data.message);
+    //         console.log("validation error", response.data.errors);
+    //       } else {
+    //         console.log("Success", response.data);
+    //         this.props.history.push("/user/login")
+    //       }
+    //     })
+    //     .catch(err => {
+    //       console.log(err);
+    //     });
+    // } 
     }
 
     render(){

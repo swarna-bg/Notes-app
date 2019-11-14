@@ -7,13 +7,14 @@ import axios from "../config/axios";
     constructor(props){
         super(props)
         this.state={
-            //   title:this.props.note.title ? this.props.note.title:'',
-            //  description:this.props.note.description ? this.props.note.description:'',
-            
-            title:' ',
-            description:'',
+            title:props.note? props.note.title : '',
+            description:props.note ? props.note.description :'',
+            category:props.note ? props.note.category : '',
+            // title:' ',
+            // description:'',
             categories:[],
-            category:''
+            // category:''
+           
         }
         this.handleChange=this.handleChange.bind(this)
         this.handleSubmit=this.handleSubmit.bind(this)
@@ -41,6 +42,12 @@ import axios from "../config/axios";
             [e.target.name]:e.target.value
        })
     }
+
+    // componentWillReceiveProps(nextProps){
+    //     const {title,description}=nextProps.note
+    //     this.setState({title,description})
+    // }
+
     handleSubmit(e){
         e.preventDefault()
         const formData={
@@ -52,12 +59,9 @@ import axios from "../config/axios";
         this.props.note && (formData.id=this.props.note._id)
           this.props.handleNoteSubmit(formData)
     }
-    componentWillReceiveProps(nextProps){
-       this.setState({
-           title:nextProps.note.title,
-           description:nextProps.note.description
-       })
-      }
+
+
+    
 
     render(){
         return (

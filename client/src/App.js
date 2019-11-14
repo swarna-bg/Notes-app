@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import Register from './users/Register'
 import  Login from './users/Login'
 import Logout from './users/logout'
+//import Home from './users/home'
 
 import NotesList from './notes/List'
 import NoteNew from './notes/new'
@@ -35,6 +36,7 @@ function App(props) {
                   <div className="row">
                       <NavItem><NavLink href="/user/register">Register</NavLink></NavItem> 
                       <NavItem><NavLink href="/user/login">Login</NavLink></NavItem>    
+                         
                   </div>
                
               ):(
@@ -57,7 +59,8 @@ function App(props) {
 
           <Route path="/categories" component={CategoryList} exact={true}/> 
           <Route path="/categories/new" component={CategoryNew} exact={true}/>
-
+          
+          {/* <Route path="/" component={Home}></Route> */}
           <Route path="/user/register" component={Register} /> 
           <Route path="/user/login" component={Login} /> 
           <Route path="/user/logout" component={Logout} /> 
