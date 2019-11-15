@@ -1,4 +1,5 @@
 import React from 'react'
+import {Form,FormGroup,Label,Button} from 'reactstrap'
 
 import axios from "../config/axios";
 
@@ -43,10 +44,7 @@ import axios from "../config/axios";
        })
     }
 
-    // componentWillReceiveProps(nextProps){
-    //     const {title,description}=nextProps.note
-    //     this.setState({title,description})
-    // }
+    
 
     handleSubmit(e){
         e.preventDefault()
@@ -67,24 +65,29 @@ import axios from "../config/axios";
         return (
             <div>
                 
-                <form onSubmit={this.handleSubmit}>
-                    <label >
-                        title
-                        <input type="text" value={this.state.title} onChange={this.handleChange} name="title"/>
-                    </label><br/>
-                    <label>
-                        description
-                        <input type="text" value={this.state.description} onChange={this.handleChange} name="description"/>
-                    </label><br/>
-                    Category
-                      <select value={this.state.category} onChange={this.handleChange} name="category">
+                <Form onSubmit={this.handleSubmit}>
+                    <FormGroup>
+                    <Label for="title" >  Title</Label>
+                    <input type="text" value={this.state.title} onChange={this.handleChange} name="title" id="title"/>
+                    <br/>
+                    </FormGroup>
+                    <FormGroup>
+                    <Label for="des"> Description</Label>
+                       
+                        <input type="text" value={this.state.description} onChange={this.handleChange} name="description" id="des"/>
+                    <br/>
+                    </FormGroup>
+                    <FormGroup>
+                    <Label for="category">Category</Label>
+                      <select value={this.state.category} onChange={this.handleChange} name="category" id="category">
                           <option value=''>select</option>
                           {this.state.categories.map(cate=>{
                               return <option key={cate._id} value={cate._id}>{cate.name}</option>
                           })}
                       </select>
-                    <button>Submit</button>
-                </form>
+                      </FormGroup>
+                    <Button color="success">Submit</Button>
+                </Form>
             </div>
         )
     }

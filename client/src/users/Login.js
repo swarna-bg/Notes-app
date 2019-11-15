@@ -1,7 +1,7 @@
 import React from 'react'
 import { startSetUser } from  '../actions/users'
 import { connect } from 'react-redux'
-import { Button, Form, Label } from 'reactstrap'
+import { Button, Form, Label ,FormGroup} from 'reactstrap'
 
 class Login extends React.Component{
     constructor(){
@@ -35,14 +35,18 @@ class Login extends React.Component{
             <div>
                 <h3>Login</h3>
                 <Form onSubmit={this.handleSubmit}>
-                   <Label>
-                        Email
-                        <input type="text" value={this.state.email} onChange={this.handleChange} name="email"/>
-                    </Label><br/>
-                    <Label>
-                        Password
-                        <input type="password" value={this.state.password} onChange={this.handleChange} name="password"/>
-                    </Label><br/>
+                <FormGroup>
+                   <Label for="email"> Email</Label>
+                       
+                        <input type="text" value={this.state.email} onChange={this.handleChange} name="email" id="email"/>
+                    <br/>
+                 </FormGroup>
+                 <FormGroup>
+                    <Label for="pass"> Password</Label>
+                      
+                        <input type="password" value={this.state.password} onChange={this.handleChange} name="password" id="pass"/>
+                    <br/>
+                </FormGroup>
                     <Button color="success">Login</Button>
                 </Form>
 

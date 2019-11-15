@@ -22,5 +22,9 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "validator": "^11.1.0"
+  },
+  "engines": {
+    "npm":"6.9.0",
+    "node":"10.16.0"
   }
 }

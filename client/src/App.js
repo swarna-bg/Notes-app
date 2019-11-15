@@ -36,7 +36,6 @@ function App(props) {
                   <div className="row">
                       <NavItem><NavLink href="/user/register">Register</NavLink></NavItem> 
                       <NavItem><NavLink href="/user/login">Login</NavLink></NavItem>    
-                         
                   </div>
                
               ):(

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, Label } from 'reactstrap'
+import { Button, Form, Label,FormGroup } from 'reactstrap'
 import axios from '../config/axios'
 
 
@@ -36,27 +36,7 @@ class Register extends React.Component{
                 this.props.history.push('/user/login')
             }
     })
-    // const  userPassword = this.state.userPassword;
-    // if (formData.password === userPassword) {
-    //   axios.post('/user/register', formData,{
-    //         headers: {
-    //           "x-auth": localStorage.getItem("authToken")
-    //         }
-
-    //   })
-    //     .then(response => {
-    //       if (response.data.errors) {
-    //         window.alert(response.data.message);
-    //         console.log("validation error", response.data.errors);
-    //       } else {
-    //         console.log("Success", response.data);
-    //         this.props.history.push("/user/login")
-    //       }
-    //     })
-    //     .catch(err => {
-    //       console.log(err);
-    //     });
-    // } 
+    
     }
 
     render(){
@@ -64,21 +44,26 @@ class Register extends React.Component{
             <div>
                 <h3>Register</h3>
                 <Form onSubmit={this.handleSubmit}>
+                <FormGroup>
+                    <Label for="name">   Username</Label>
+                      
+                        <input type="text" value={this.state.username} onChange={this.handleChange} name="username" id="name"/>
+                    <br/>
+                </FormGroup>
+                <FormGroup>
+                    <Label for="email"> Email</Label>
+                       
+                        <input type="text" value={this.state.email} onChange={this.handleChange} name="email" id="email"/>
+                    <br/>
+                </FormGroup>
+                <FormGroup>
+                    <Label for="pass"> Password</Label>
+                       
+                        <input type="password" value={this.state.password} onChange={this.handleChange} name="password" id="pass"/>
+                    <br/>
+                </FormGroup>
                    
-                    <Label>
-                        Username
-                        <input type="text" value={this.state.username} onChange={this.handleChange} name="username"/>
-                    </Label><br/>
-                    <Label>
-                        Email
-                        <input type="text" value={this.state.email} onChange={this.handleChange} name="email"/>
-                    </Label><br/>
-                    <Label>
-                        Password
-                        <input type="password" value={this.state.password} onChange={this.handleChange} name="password"/>
-                    </Label><br/>
-                    {/* <input type="submit" value="submit"/> */}
-                    <Button color="success"> Submit</Button>
+                <Button color="success"> Submit</Button>
                    
                 </Form>
 
